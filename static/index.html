@@ -8,14 +8,21 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="icon" href="assets/favicon.ico">
     <title>Name</title>
-    <link href="normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/uikit/css/uikit.almost-flat.min.css" />
+    <script src="assets/jquery.js"></script>
+    <script src="assets/uikit/js/uikit.min.js"></script>
+    <script src="assets/uikit/js/components/autocomplete.min.js"></script>
     <link href="style.css" rel="stylesheet">
+<!--    <link href="normalize.css" rel="stylesheet">-->
+<!--    <link href="style.css" rel="stylesheet">-->
   </head>
   <body>
-    <form method="post" class="searchContainer">
-      <input type="text" name="searchString" class="form-control searchBox" placeholder="Search for...">
-      <input type="submit" class="searchButton"  value="Submit">
-    </form>
-  <script src="script.js"></script>
+    <div class="uk-container uk-container-center searchContainer">
+      <div class="uk-autocomplete uk-form searchBox" data-uk-autocomplete="{source:'#'}">
+        <input class="uk-width-1-1 searchInnerBox" type="text">
+        <input class="uk-button uk-button-primary searchButton" type="submit" value="Submit">
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

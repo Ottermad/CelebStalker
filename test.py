@@ -1,16 +1,7 @@
-import requests
-import json
+from app.ticketmaster.functions import *
 
-payload = {}
+d = search_attraction("tomas", "sweden")
 
-payload["apikey"]= "GxIw3zDAjYxxqzA3aPCtRfJ7bSYSTrKR"
-payload["domain_ids"] = "sweden"
-payload["attraction_name"] = "twenty"
+ids = [str(attraction['id']) for attraction in d['attractions']]
 
-headers = {'Accept': 'application/json'}
-
-r = requests.get("https://app.ticketmaster.eu/mfxapi/v1/attractions", params=payload, headers=headers)
-
-data = json.loads(r.text)
-
-print(data)
+get_events(ids, "sweden")

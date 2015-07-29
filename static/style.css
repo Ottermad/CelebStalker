@@ -48,3 +48,50 @@ body {
   align-self: center;
   width: 10%;
 }
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+.travelContainer {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.travelContainer:hover {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.travelElements {
+  max-width: inherit;
+}

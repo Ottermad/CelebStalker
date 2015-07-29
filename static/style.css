@@ -30,6 +30,10 @@ body {
   padding-bottom: 30px;
 }
 
+.peopleSelector {
+  display: flex;
+}
+
 .purchase {
   float: right;
 }

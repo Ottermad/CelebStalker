@@ -8,21 +8,63 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="icon" href="assets/favicon.ico">
     <title>Name</title>
+    <link rel="stylesheet" href="assets/uikit/css/uikit.almost-flat.min.css"/>
+    <link rel="stylesheet" href="assets/uikit/css/components/notify.almost-flat.min.css"/>
+    <script src="assets/jquery.js"></script>
+    <script src="assets/uikit/js/uikit.min.js"></script>
+    <script src="assets/uikit/js/components/notify.min.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <h1 class="title">TOURiST</h1>
-    <ul class="eventsContainer">
-      <li class="events"><a href="#">Event One</li>
-      <li class="events"><a href="#">Event Two</li>
-      <li class="events"><a href="#">Event Three</li>
-      <li class="events"><a href="#">Event Four</li>
-      <li class="events"><a href="#">Event Five</li>
-      <li class="events"><a href="#">Event Six</li>
-      <li class="events"><a href="#">Event Seven</li>
-      <li class="events"><a href="#">Event Eight</li>
-      <li class="events"><a href="#">Event Nine</li>
-      <li class="events"><a href="#">Event Ten</li>
-    </ul>
+    <br>
+    <h1 class="uk-text-center title">TOURiST</h1>
+    <br>
+    <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
+      <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal1" data-uk-modal="{center:true}">Box</a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box uk-margin-left events" href="#modal2" data-uk-modal="{center:true}">Box</a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box uk-margin-left events" href="#modal3" data-uk-modal="{center:true}">Box</a>
+    </div>
+    <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
+      <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal4" data-uk-modal="{center:true}">Box</a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box uk-margin-left events" href="#modal5" data-uk-modal="{center:true}">Box</a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box uk-margin-left events" href="#modal6" data-uk-modal="{center:true}">Box</a>
+    </div>
+    <div id="modal1" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Text 1
+      </div>
+    </div>
+    <div id="modal2" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Text 2
+      </div>
+    </div>
+    <div id="modal3" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Text 3
+      </div>
+    </div>
+    <div id="modal4" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Text 4
+      </div>
+    </div>
+    <div id="modal5" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Text 5
+      </div>
+    </div>
+    <div id="modal6" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Text 6
+      </div>
+    </div>
+  <script src="script.js"></script>
   </body>
 </html>

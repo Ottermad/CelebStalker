@@ -1,25 +1,61 @@
 <!DOCTYPEhtml>
 
 <html lang="eng">
-<head>
+
+ <head>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="icon" href="assets/favicon.ico">
-		<title>
-			Travel
-		</title>
-	<link href="normalize.css" rel="stylesheet">
+    <title>Name</title>
+    <link rel="stylesheet" href="assets/uikit/css/uikit.almost-flat.min.css"/>
+    <link rel="stylesheet" href="assets/uikit/css/components/notify.almost-flat.min.css"/>
+    <script src="assets/jquery.js"></script>
+    <script src="assets/uikit/js/uikit.min.js"></script>
+    <script src="assets/uikit/js/components/notify.min.js"></script>
     <link href="style.css" rel="stylesheet">
-</head>
+  </head>
 
 <body>
-<h1 class="title"> TOURiST </h1>
-<ul class="eventsContainer">
-  <li class="events"><a href="#"> Train </li>
-  <li class="events"><a href="#"> Plane </li>
-  <li class="events"><a href="#"> Car </li>
-  <li class="events"><a href="#"> No thanks, I can just walk </li>
-</ul>
+ 
+ <br>
+ <h1 class="uk-text-center title">
+    TOURiST
+  </h1>
+  <br>
+
+ <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
+      <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal1" data-uk-modal="{center:true}"> Train <img src="assets/train.png"> </a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box uk-margin-left events"href="#modal2" data-uk-modal="{center:true}">Plane<img src="assets/plane.png"></a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box uk-margin-left events" href="#modal3" data-uk-modal="{center:true}">Car <img src="assets/car.png"> </a>
+      <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal4"data-uk-modal="{center:true}">No thanks, I can just walk<img src="assets/walk.png"></a>
+</div>
+
+    <div id="modal1" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Trains etc
+      </div>
+    </div>
+    <div id="modal2" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Planes etc
+      </div>
+    </div>
+    <div id="modal3" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Cars etc
+      </div>
+    </div>
+    <div id="modal4" class="uk-modal">
+      <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        Next Page
+      </div>
+
+<script src="script.js"></script>
 </body>
+</html>

@@ -10,13 +10,13 @@ def distance(origin, dest):
     payload["origins"] = ",".join(origin)
     r = requests.get("https://maps.googleapis.com/maps/api/distancematrix/json", params=payload)
     data = r.json()
-    miles = data['rows']['elements']['distance']['value'] / 1600.0
+    miles = data['rows'][0]['elements'][0]['distance']['value'] / 1600.0
     return miles
 
 
 def cost(mpg, miles):
-    gallons = mpg / miles
-    pounds = gallons / 4.996
+    gallons = miles / mpg
+    pounds = gallons * 4.996
     return pounds
 
 

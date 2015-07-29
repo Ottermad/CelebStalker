@@ -1,0 +1,14 @@
+"maxConnectionDuration": integer,
+        "preferredCabin": string,
+        "permittedDepartureTime": {
+          "kind": "qpxexpress#timeOfDayRange",
+          "earliestTime": string,
+          "latestTime": string
+        },
+        "permittedCarrier": [
+          string
+        ],
+        "alliance": string,
+        "prohibitedCarrier": [
+          string
+        ]

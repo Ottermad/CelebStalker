@@ -1,8 +1,7 @@
 import requests
 from .google_flights import flights_request
 from .config import GOOGLE_API_KEY, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET, FOURSQUARE_VERSION, FOURSQUARE_AIRPORT_ID
-from flask import jsonify
-
+import json
 
 def distance(origin, dest):
     payload = {}
@@ -90,5 +89,11 @@ def cheapest_flight(start, end, passengers, date):
     headers = {'Content-Type': 'application/json'}
     r = requests.post("https://www.googleapis.com/qpxExpress/v1/trips/search", data=data, params=payload, headers=headers)
     json_data = r.json()
-    prices = [x['saleTotal'] for x in json_data['trips']['tripOption']]
-    print(prices)
+    price = json_data['trips']['tripOption'][0]['saleTotal']
+    resp = {
+        'price': price,
+        'origin': start,
+        'destination': end
+    }
+
+    return json.dumps(resp)

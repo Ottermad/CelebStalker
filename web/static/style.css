@@ -1,0 +1,135 @@
+body {
+  height: 100vh;
+}
+
+.title {
+  font-size: 5em;
+  color: #ffffff;
+}
+
+.eventsContainer {
+  margin-bottom: 3em;
+}
+
+.events {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.events:hover {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.smallEventsModal {
+  width: 30%;
+  padding-bottom: 30px;
+}
+
+.peopleSelector {
+  display: flex;
+}
+
+.purchase {
+  float: right;
+}
+
+.searchContainer {
+  display: flex;
+  height: 100%;
+  margin: auto;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+.searchBox {
+  align-self: center;
+  width: 60%;
+}
+
+.searchInnerBox {
+  align-self: center;
+  width: 89%;
+}
+
+.searchButton {
+  align-self: center;
+  width: 10%;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+.travel {
+  padding-bottom: 15px;
+  padding-top: 25px;
+}
+
+.travelContainer {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.travelContainer:hover {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.travelElements {
+  max-width: inherit;
+}
+
+.travelImg {
+  width: 25%;
+}
+
+.tilt {
+    -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+ 
+.tilt:hover {
+  -webkit-transform: rotate(-5deg);
+     -moz-transform: rotate(-5deg);
+       -o-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+}

@@ -133,3 +133,7 @@ a:active {
       -ms-transform: rotate(-5deg);
           transform: rotate(-5deg);
 }
+
+.translucent {
+  background-color: rgba(255,255,255,0.9);
+}

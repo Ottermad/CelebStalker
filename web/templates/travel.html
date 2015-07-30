@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+    {% extends "layout.html" %}
 {% block content %}
   <br>
   <h1 class="uk-text-center title">TOURiST</h1>
@@ -126,7 +126,7 @@
  <style>
     html  {
         height: 140vh;
-        background-image: url("static/assets/background_streamers.jpg");
+        background-image: url("{{ url_for('static', filename='assets/background_streamers.jpg') }}");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

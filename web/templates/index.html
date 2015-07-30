@@ -8,6 +8,8 @@
         <div class="uk-autocomplete uk-form searchBox" data-uk-autocomplete="{source:'#'}">
           <form method="post" action="/">
             <input id="searchText" name="searchText" class="uk-width-1-1 searchInnerBox" type="text">
+            <input type="hidden" name="long" id="long">
+            <input type="hidden" name="lat" id="lat">
             <input class="uk-button uk-button-primary searchButton" type="submit" value="Submit">
           </form>
         </div>
@@ -26,6 +28,10 @@
   <script>
     navigator.geolocation.getCurrentPosition(function(position) {
       console.log(position.coords.latitude, position.coords.longitude);
+      var elem = document.getElementById("long");
+      elem.value = position.coords.longitude;
+      var elem2 = document.getElementById("lat");
+      elem2.value = position.coords.latitude;
     });
   </script>
 {% endblock %}

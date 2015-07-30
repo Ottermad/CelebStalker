@@ -16,7 +16,7 @@
             <p>Estimated Price: {{ event['price'] }}</p>
             <p>Dates:</p>
             <p>- {{ event['date'] }}</p>
-            <a class="purchase" href="#purchase{{event['id']}}">Purchase</a>
+            <a class="purchase" href="{{ url_for('travel', origin=origin, destination=event['lat'] + ',' + event['long'], date=event['date']) }}">Purchase</a>
           </div>
         </div>
       {% endfor %}

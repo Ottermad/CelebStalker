@@ -22,8 +22,10 @@
       </div>
       <div class="uk-container uk-container-center searchContainer">
         <div class="uk-autocomplete uk-form searchBox" data-uk-autocomplete="{source:'#'}">
-          <input class="uk-width-1-1 searchInnerBox" type="text">
+          <form method="post">
+          <input id='searchText' class="uk-width-1-1 searchInnerBox" type="text">
           <input class="uk-button uk-button-primary searchButton" type="submit" value="Submit">
+          </form>
         </div>
       </div>
     </div>
@@ -38,4 +40,9 @@
         background-repeat: no-repeat;
     }
   </style>
+  <script>
+  navigator.geolocation.getCurrentPosition(function(position) {
+    console.log(position.coords.latitude, position.coords.longitude);
+  });
+  </script>
 </html>

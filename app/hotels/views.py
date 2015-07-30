@@ -9,4 +9,11 @@ hotels_b = Blueprint('hotels', __name__, url_prefix='/hotels')
 @hotels_b.route('/<location>')
 def hotels(location):
     location = location.split(",")
-    return jsonify({'response': closest_hotel(location)})
+    closest = closest_hotel(location)
+    new_data = {
+    	'longitude': closest['Longitude'],
+    	'latitude': closest['Latitude'],
+    	'name': closest['HotelName'],
+    	'price': closest['MaxPrice']
+    }
+    return jsonify(new_data)

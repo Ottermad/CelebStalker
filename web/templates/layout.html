@@ -1,0 +1,21 @@
+<!DOCTYPEhtml>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+      <title>
+          {% block title %}TOURiST{% endblock %}
+      </title>
+  <script src="{{ url_for('static', filename='assets/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/uikit/js/uikit.min.js') }}"></script>
+  <link href="{{ url_for('static', filename='assets/uikit/css/uikit.almost-flat.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+{% block content %}
+{% endblock %}
+</body>
+</html>

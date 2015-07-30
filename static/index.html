@@ -17,18 +17,19 @@
   </head>
   <body>
     <div class="uk-container uk-container-center uk-align-center searchWrapper">
-    <div class="uk-container uk-container-center">
-      <img src="assets/text.png" class="logo">
-    </div>
-    <div class="uk-container uk-container-center searchContainer">
-      <div class="uk-autocomplete uk-form searchBox" data-uk-autocomplete="{source:'#'}">
-        <input class="uk-width-1-1 searchInnerBox" type="text">
-        <input class="uk-button uk-button-primary searchButton" type="submit" value="Submit">
+      <div class="uk-container uk-container-center">
+        <img src="assets/text.png" class="logo">
+      </div>
+      <div class="uk-container uk-container-center searchContainer">
+        <div class="uk-autocomplete uk-form searchBox" data-uk-autocomplete="{source:'#'}">
+          <form method="post">
+          <input id='searchText' class="uk-width-1-1 searchInnerBox" type="text">
+          <input class="uk-button uk-button-primary searchButton" type="submit" value="Submit">
+          </form>
+        </div>
       </div>
     </div>
-    </div>
     <script src="script.js"></script>
-    
   </body>
   <style>
     html  {
@@ -39,4 +40,9 @@
         background-repeat: no-repeat;
     }
   </style>
+  <script>
+  navigator.geolocation.getCurrentPosition(function(position) {
+    console.log(position.coords.latitude, position.coords.longitude);
+  });
+  </script>
 </html>

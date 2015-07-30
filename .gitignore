@@ -2,3 +2,4 @@
 venv/
 *.pyc
 app/ticketmaster/ticketmaster.txt
+app/hotels/Hotels.csv

@@ -15,10 +15,10 @@
           <a class="uk-modal-close uk-close"></a>
           <h3>{{ hotel['name'] }}</h3>
           <p>Estimated Price: £{{ hotel['price'] }} per night</p>
+          <!--
           <p>Arrival: 01/02/03</p>
           <p>Departure: 03/02/03</p>
-          <!--
-          <div class="peopleSelector">
+                    <div class="peopleSelector">
             <p>Adults:&nbsp;</p>
             <select>
               <option value="1a">1</option>
@@ -36,8 +36,8 @@
               <option value="3c">3</option>
               <option value="4c">4</option>
             </select>
-          </div>-->
-          <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
 <!--          <a class="purchase" href="#purchase1">Purchase</a>-->
           <form method="POST">
             <input type="hidden" name="hotel" value="{{ hotel['name']}}">

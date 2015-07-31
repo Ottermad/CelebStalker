@@ -91,8 +91,9 @@ def hotels():
     r = requests.get(base_url + 'hotels/' + destination)
     print(r.url)
     hotels = [r.json()]
-    #for hotel in hotels:
-    #    hotel['price'] = round(hotels['price'], 2)
+    for hotel in hotels:
+        print(hotel)
+        hotel['price'] = str(round(float(hotel['price']), 2))
 
     return render_template('hotels.html', hotels=hotels)
 

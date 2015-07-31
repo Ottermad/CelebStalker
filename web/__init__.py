@@ -48,7 +48,7 @@ def events():
 @app.route('/travel', methods=('GET', 'POST'))
 def travel():
     if request.method == 'POST':
-        session['query']['mode'] = request.form['mode']
+        session['query']['mode'] = request.form['mode'].title()
         session['query']['travelCost'] = request.form['cost']
         return redirect(url_for('hotels'))
     origin = session['query']['origin']
@@ -99,9 +99,23 @@ def hotels():
 
 @app.route('/checkout')
 def checkout():
-    print(session['query'])
     session['query']['total'] = float(session['query']['price']) + float(session['query']['hotelPrice']) + float(session['query']['travelCost'])
-    return render_template("checkout.html", details=session['query'])
+    return render_template("checkout.html", details=session['query'], others=session['complete'])
+
+@app.route('/compare')
+def compare():
+    if session['complete']:
+        session['complete'].append(session['query'])
+    else:
+        session['complete'] = [session['query']]
+    session['query'] = {}
+    return redirect(url_for("home"))
+
+@app.route('/complete')
+def complete():
+    session['complete'] = []
+    session['query'] = {}
+    return redirect(url_for("home"))
 
 
 if __name__ == '__main__':

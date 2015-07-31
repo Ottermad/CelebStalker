@@ -22,7 +22,7 @@ def distance_walk(origin, dest):
     payload['mode'] = 'walking'
     r = requests.get("https://maps.googleapis.com/maps/api/distancematrix/json", params=payload)
     data = r.json()
-    print(r.url)
+    print(data)
     miles = data['rows'][0]['elements'][0]['distance']['value'] / 1600.0
     return miles
 

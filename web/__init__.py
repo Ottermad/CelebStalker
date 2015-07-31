@@ -24,6 +24,7 @@ def events():
         session['query']['date'] = request.form['date']
         session['query']['destination'] = request.form['destination']
         session['query']['price'] = request.form['price']
+        session['query']['name'] = request.form['name']
         return redirect(url_for('travel'))
     else:
         r = requests.get(base_url + 'events/search/' + session['query']['celeb'])
@@ -62,7 +63,7 @@ def travel():
         car_data = False
     try:
         walk = requests.get(base_url + 'travel/walk/' + origin + '/' + destination)
-        walk_data = car.json()
+        walk_data = walk.json()
         walk_data['distance'] = round(car_data['distance'], 3)
         print("WALK DATA", walk_data)
     except:

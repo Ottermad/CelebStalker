@@ -63,7 +63,7 @@
                 <div class="uk-width-medium-1-3">
                     <div class="uk-panel">
                         <h2>Pricing</h2>
-                        <p>The cost of a single adult ticket on this journey is {{ airport['price'] }}_.</p>
+                        <p>The cost of a single adult ticket on this journey is   {{ airport['price'] }}_.</p>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,12 @@
   </a>
   {% endif %}
   {% if walk %}
-    <a class="travelWrapper" href="#modal3">
+    <form method="POST" id="walkForm">
+      <input type="hidden" name="mode" value="walk">
+      <input type="hidden" name="cost" value="0">
+      <input type="hidden" name="distance" value="{{ walk['distance'] }}">
+    </form>
+    <a class="travelWrapper" href="#modal3" onclick="$('#walkForm').submit()">
       <div class="travelContainer">
         <div class="uk-block uk-block-muted travel">
           <div class="uk-container travelElements">
@@ -89,7 +94,7 @@
                   <div class="uk-width-medium-1-3">
                       <div class="uk-panel">
                           <h2>Distance</h2>
-                          <p>You will have to walk ______km to the venue. This will take _____ minutes or ______ hours.</p>
+                          <p>You will have to walk {{ walk['distance'] }} miles to the venue.</p>
                       </div>
                   </div>
                   <div class="uk-width-medium-1-3">

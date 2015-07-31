@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 import requests
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'adinpwbfweuiewadawadadwabNFIUpwbfuiew'
+app.config['SECRET_KEY'] = 'adinpwbfweu1231241iewadawadadwabNFIUpwbfuiew'
 
 base_url = 'http://127.0.0.1:5000/'
 
@@ -23,6 +23,7 @@ def events():
     if request.method == "POST":
         session['query']['date'] = request.form['date']
         session['query']['destination'] = request.form['destination']
+        session['query']['pric'] = request.form['price']
         return redirect(url_for('travel'))
     else:
         r = requests.get(base_url + 'events/search/' + session['query']['celeb'])
@@ -71,6 +72,7 @@ def travel():
 @app.route('/hotels', methods=('GET', 'POST'))
 def hotels():
     if request.method == "POST":
+        print(request.form['hotel'])
         session['query']['hotel'] = request.form['hotel']
         session['query']['hotelPrice'] = request.form['price']
         return redirect(url_for('checkout'))
@@ -80,13 +82,14 @@ def hotels():
     print(r.url)
     hotels = [r.json()]
     print(hotels)
-    print(session['query'])
     return render_template('hotels.html', hotels=hotels)
 
 
 @app.route('/checkout')
 def checkout():
-    return render_template("checkout.html")
+    print(session['query'])
+    session['query']['total'] = float(session['query']['price']) + float(session['query']['hotelPrice']) + float(session['query']['travelCost'])
+    return render_template("checkout.html", details=session['query'])
 
 
 if __name__ == '__main__':

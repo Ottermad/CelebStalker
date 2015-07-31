@@ -38,7 +38,11 @@
             </select>
           </div>-->
           <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a class="purchase" href="#purchase1">Purchase</a>
+<!--          <a class="purchase" href="#purchase1">Purchase</a>-->
+          <form method="POST">
+            <input type="hidden" name="hotel" value="{{ hotel['name']}}">
+            <input type="hidden" name="price" value="{{ hotel['price'] }}">
+          </form>
         </div>
       </div>
     {% endfor %}

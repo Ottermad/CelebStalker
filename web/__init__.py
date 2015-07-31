@@ -18,23 +18,28 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/events/<celeb>/<origin>')
+@app.route('/events', methods=('GET', 'POST'))
 def events(celeb, origin):
-    r = requests.get(base_url + 'events/search/' + celeb)
-    json_data = r.json()
-    # id, date, maxprice currency, name
-    data = []
-    print(json_data)
-    for event in json_data['events']:
-        e_data = {}
-        e_data['id'] = event['id']
-        e_data['date'] = event['localeventdate']
-        e_data['name'] = event['name']
-        e_data['price'] = event['price_ranges']['including_ticket_fees']['max']
-        e_data['lat'] = str(event['venue']['location']['address']['lat'])
-        e_data['long'] = str(event['venue']['location']['address']['long'])
-        data.append(e_data)
-    return render_template('events.html', events=data, origin=origin)
+    if request.method == "POST":
+        session['query']['date'] = request.form['date']
+        session['query']['destination'] = request.form['destination']
+        return redirect(url_for('travel'))
+    else:
+        r = requests.get(base_url + 'events/search/' + session['query']['celeb'])
+        json_data = r.json()
+        # id, date, maxprice currency, name
+        data = []
+        print(json_data)
+        for event in json_data['events']:
+            e_data = {}
+            e_data['id'] = event['id']
+            e_data['date'] = event['localeventdate']
+            e_data['name'] = event['name']
+            e_data['price'] = event['price_ranges']['including_ticket_fees']['max']
+            e_data['lat'] = str(event['venue']['location']['address']['lat'])
+            e_data['long'] = str(event['venue']['location']['address']['long'])
+            data.append(e_data)
+        return render_template('events.html', events=data)
 
 
 @app.route('/travel/<origin>/<destination>/<date>/<price>')

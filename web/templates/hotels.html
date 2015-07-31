@@ -3,48 +3,52 @@
     <br>
     <h1 class="uk-text-center title">TOURiST</h1>
     <br>
-    <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
-      <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal1" data-uk-modal="{center:true}">
-        <h2 class="uk-text-center">Yet Another Hotel Name</h2>
-        <img src="static/assets/kittendelete.jpg" width="400">
-      </a>
-    </div>
-    <div id="modal1" class="uk-modal">
-      <div class="uk-modal-dialog smallEventsModal">
-        <a class="uk-modal-close uk-close"></a>
-        <h3>Hotelname, London</h3>
-        <p>Estimated Price: £20 per night, £40 total</p>
-        <p>Arrival: 01/02/03</p>
-        <p>Departure: 03/02/03</p>
-        <div class="peopleSelector">
-          <p>Adults:&nbsp;</p>
-          <select>
-            <option value="1a">1</option>
-            <option value="2a">2</option>
-            <option value="3a">3</option>
-            <option value="4a">4</option>
-          </select>
-        </div>
-        <div class="peopleSelector">
-          <p>Children:&nbsp;</p>
-          <select>
-            <option value="0c">0</option>
-            <option value="1c">1</option>
-            <option value="2c">2</option>
-            <option value="3c">3</option>
-            <option value="4c">4</option>
-          </select>
-        </div>
-        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a class="purchase" href="#purchase1">Purchase</a>
+    {% for hotel in hotels %}
+      <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
+        <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal1" data-uk-modal="{center:true}">
+          <h2 class="uk-text-center">{{ hotel['name'] }}</h2>
+          <img src="{{ url_for('static', filename='assets/kittendelete.jpg') }}" width="400">
+        </a>
       </div>
-    </div>
+      <div id="modal1" class="uk-modal">
+        <div class="uk-modal-dialog smallEventsModal">
+          <a class="uk-modal-close uk-close"></a>
+          <h3>{{ hotel['name'] }}</h3>
+          <p>Estimated Price: £{{ hotel['price'] }} per night</p>
+          <p>Arrival: 01/02/03</p>
+          <p>Departure: 03/02/03</p>
+          <!--
+          <div class="peopleSelector">
+            <p>Adults:&nbsp;</p>
+            <select>
+              <option value="1a">1</option>
+              <option value="2a">2</option>
+              <option value="3a">3</option>
+              <option value="4a">4</option>
+            </select>
+          </div>
+          <div class="peopleSelector">
+            <p>Children:&nbsp;</p>
+            <select>
+              <option value="0c">0</option>
+              <option value="1c">1</option>
+              <option value="2c">2</option>
+              <option value="3c">3</option>
+              <option value="4c">4</option>
+            </select>
+          </div>-->
+          <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a class="purchase" href="#purchase1">Purchase</a>
+        </div>
+      </div>
+    {% endfor %}
       <script src="static/script.js"></script>
+    
 
  <style>
     html  {
         height: 120vh;
-        background-image: url("static/assets/background_blueconcert.jpg");
+        background-image: url("{{ url_for('static', filename='assets/background_blueconcert.jpg') }}");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

@@ -3,8 +3,9 @@ from flask import Flask, render_template, request, url_for, redirect
 import requests
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'adinpwbfweuiebNFIUpwbfuiew'
 
-base_url = 'https://4cb72245.ngrok.io/'
+base_url = 'http://127.0.0.1:5000/'
 
 @app.route('/travel/<origin>/<destination>/<date>')
 def travel(origin, destination, date):
@@ -41,7 +42,13 @@ def events(celeb, origin):
 def hotels(destination):
     r = requests.get(base_url + 'hotels/' + destination)
     hotels = [r.json()]
+    print(hotels)
     return render_template('hotels.html', hotels=hotels)
+
+
+@app.route('/checkout')
+def checkout():
+    return render_template("checkout.html")
 
 
 @app.route('/', methods=('GET', 'POST'))

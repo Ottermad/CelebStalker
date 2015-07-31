@@ -23,7 +23,7 @@ def events():
     if request.method == "POST":
         session['query']['date'] = request.form['date']
         session['query']['destination'] = request.form['destination']
-        session['query']['pric'] = request.form['price']
+        session['query']['price'] = request.form['price']
         return redirect(url_for('travel'))
     else:
         r = requests.get(base_url + 'events/search/' + session['query']['celeb'])

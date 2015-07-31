@@ -5,7 +5,8 @@ import json
 
 travel = Blueprint('travel', __name__, url_prefix='/travel')
 
-f = open('/Users/charliethomas/CelebStalker2/CelebStalker/app/travel/airports.json', 'r')
+#f = open('/Users/charliethomas/CelebStalker2/CelebStalker/app/travel/airports.json', 'r')
+f = open('/home/cthomas/CelebStalker/app/travel/airports.json', 'r')
 airport_data = json.loads(f.read())
 f.close()
 

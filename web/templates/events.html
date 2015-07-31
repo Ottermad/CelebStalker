@@ -16,7 +16,10 @@
             <p>Estimated Price: {{ event['price'] }}</p>
             <p>Dates:</p>
             <p>- {{ event['date'] }}</p>
-            <a class="purchase" href="{{ url_for('travel', origin=origin, destination=event['lat'] + ',' + event['long'], date=event['date']) }}">Purchase</a>
+            <form method="POST">
+              <input type="hidden" name="destination" value="{{ event['lat'] + ',' + event['long'] }}">
+              <input type="hidden" name="date" value="{{ event['date'] }}">
+            </form>
           </div>
         </div>
       {% endfor %}

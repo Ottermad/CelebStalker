@@ -13,7 +13,7 @@ def home():
     if request.method == 'POST':
         celeb = request.form['searchText']
         origin = request.form['lat'] + r',' + request.form['long']
-        session['query'] = {'celeb': celeb}
+        session['query'] = {'celeb': celeb, 'origin': origin}
         return redirect(url_for('events', celeb=celeb, origin=origin))
     return render_template('index.html')
 

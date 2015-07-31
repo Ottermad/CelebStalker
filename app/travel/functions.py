@@ -6,10 +6,11 @@ import json
 def distance(origin, dest):
     payload = {}
     payload["key"] = GOOGLE_API_KEY 
-    payload["destinations"] = ",".join(dest)
-    payload["origins"] = ",".join(origin)
+    payload["destinations"] = dest[0] + ',' + dest[1]
+    payload["origins"] = origin[0] + ',' + origin[1]
     r = requests.get("https://maps.googleapis.com/maps/api/distancematrix/json", params=payload)
     data = r.json()
+    print(r.url)
     miles = data['rows'][0]['elements'][0]['distance']['value'] / 1600.0
     return miles
 
@@ -66,9 +67,9 @@ def is_close(location1, location2):
     lng_is_close = False
     location1 = [float(x) for x in location1]
     location2 = [float(x) for x in location2]
-    if abs(location1[0] - location2[0]) < 0.1:
+    if abs(location1[0] - location2[0]) < 0.4:
         lat_is_close = True
-    if abs(location1[1] - location2[1]) < 0.1:
+    if abs(location1[1] - location2[1]) < 0.4:
         lng_is_close = True
     return lat_is_close and lng_is_close
 
@@ -89,6 +90,7 @@ def cheapest_flight(start, end, passengers, date):
     r = requests.post("https://www.googleapis.com/qpxExpress/v1/trips/search", data=data, params=payload, headers=headers)
     print(r.status_code)
     json_data = r.json()
+    print(json_data)
     price = json_data['trips']['tripOption'][0]['saleTotal']
     resp = {
         'price': price,

@@ -3,8 +3,12 @@
     <br>
     <h1 class="uk-text-center title">TOURiST</h1>
     <br>
-    <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
+    <div id='events'>
+      {% set count = 1 %}
       {% for event in events %}
+        {% if count == 1 %}
+            <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
+        {% endif %}
         <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal{{event['id']}}" data-uk-modal="{center:true}">
           <h2 class="uk-text-center">{{ event['name'] }}</h2>
           <img src="{{ url_for('static', filename='assets/kittendelete.jpg') }}" width="400">
@@ -24,8 +28,14 @@
             </form>
           </div>
         </div>
+        {% if count == 3 %}
+          </div>
+          {% set count = 1 %}
+        {% else %}
+          {% set count = count + 1 %}
+        {% endif %}
       {% endfor %}
-    </div>
+      </div>
   <script src="script.js"></script>
 
    <style>
@@ -35,6 +45,14 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        overflow: hidden;
+
+    }
+
+    #events {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 80%;
     }
 
   </style>

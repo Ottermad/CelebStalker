@@ -39,6 +39,11 @@ body {
   float: right;
 }
 
+.complete {
+  float: right;
+  font-size: 18px;
+}
+
 .searchWrapper {
   position: relative;
   top: 50%;
@@ -111,6 +116,21 @@ a:active {
   cursor: pointer;
 }
 
+.highlight {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.highlight:hover {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
 .travelContainer:hover {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   border: 1px solid rgba(81, 203, 238, 1);
@@ -125,11 +145,11 @@ a:active {
 }
 
 .tilt {
-    -webkit-transition: all 0.2s ease;
-     -moz-transition: all 0.2s ease;
-       -o-transition: all 0.2s ease;
-      -ms-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+   -moz-transition: all 0.2s ease;
+     -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease;
 }
  
 .tilt:hover {
@@ -142,6 +162,7 @@ a:active {
 
 .translucent {
   background-color: rgba(255,255,255,0.9);
+  
 }
 
 .logo {
@@ -150,4 +171,25 @@ a:active {
   justify-content: center;
   height: 40%;
   margin-bottom: 30px;
+}
+
+.leftComparison {
+  margin-left: 10%;
+  position: relative;
+  top: 50%;
+  margin-top: 0px;
+  transform: translateY(-160%);
+}
+
+.rightComparison {
+  margin-right: 10%;
+  position: relative;
+  top: 50%;
+  margin-top: 0px;
+  transform: translateY(-160%);
+}
+
+.checkOutTitle {
+  margin-top: 20%;
+  margin-bottom: 0px;
 }

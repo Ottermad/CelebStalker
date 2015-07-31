@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from .functions import cheapest_flight, lltocode, distance, cost, nearest_airport 
+from .functions import cheapest_flight, lltocode, distance, cost, nearest_airport, distance_walk 
 
 import json
 
@@ -20,6 +20,18 @@ def car(origin, destination, mpg):
         'mpg': mpg,
         'distance': miles,
         'cost': pounds
+    } 
+    return jsonify(resp)
+
+@travel.route('/walk/<origin>/<destination>')
+def walk(origin, destination):
+    print(origin)
+    miles = distance_walk(origin.split(","), destination.split(','))
+    
+    resp = {
+        'origin': origin,
+        'destination': destination,
+        'distance': miles,
     } 
     return jsonify(resp)
 

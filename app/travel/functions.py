@@ -14,6 +14,18 @@ def distance(origin, dest):
     miles = data['rows'][0]['elements'][0]['distance']['value'] / 1600.0
     return miles
 
+def distance_walk(origin, dest):
+    payload = {}
+    payload["key"] = GOOGLE_API_KEY 
+    payload["destinations"] = dest[0] + ',' + dest[1]
+    payload["origins"] = origin[0] + ',' + origin[1]
+    payload['mode'] = 'walking'
+    r = requests.get("https://maps.googleapis.com/maps/api/distancematrix/json", params=payload)
+    data = r.json()
+    print(r.url)
+    miles = data['rows'][0]['elements'][0]['distance']['value'] / 1600.0
+    return miles
+
 
 def cost(mpg, miles):
     gallons = miles / mpg

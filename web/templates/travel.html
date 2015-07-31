@@ -72,36 +72,38 @@
     </div>
   </a>
   {% endif %}
-  <a class="travelWrapper" href="#modal3">
-    <div class="travelContainer">
-      <div class="uk-block uk-block-muted travel">
-        <div class="uk-container travelElements">
-            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
-                <div class="uk-width-medium-1-3 travelImg">
-                    <div class="uk-panel">
-                        <h1>I can walk</h1>
-                        <div class="tilt">
-                          <img src="{{ url_for('static', filename='assets/walk.png') }}">
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-width-medium-1-3">
-                    <div class="uk-panel">
-                        <h2>Distance</h2>
-                        <p>You will have to walk ______km to the venue. This will take _____ minutes or ______ hours.</p>
-                    </div>
-                </div>
-                <div class="uk-width-medium-1-3">
-                    <div class="uk-panel">
-                        <h2>Pricing</h2>
-                        <p>Funnily enough, it is free to walk to your venue!</p>
-                    </div>
-                </div>
-            </div>
+  {% if walk %}
+    <a class="travelWrapper" href="#modal3">
+      <div class="travelContainer">
+        <div class="uk-block uk-block-muted travel">
+          <div class="uk-container travelElements">
+              <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+                  <div class="uk-width-medium-1-3 travelImg">
+                      <div class="uk-panel">
+                          <h1>I can walk</h1>
+                          <div class="tilt">
+                            <img src="{{ url_for('static', filename='assets/walk.png') }}">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="uk-width-medium-1-3">
+                      <div class="uk-panel">
+                          <h2>Distance</h2>
+                          <p>You will have to walk ______km to the venue. This will take _____ minutes or ______ hours.</p>
+                      </div>
+                  </div>
+                  <div class="uk-width-medium-1-3">
+                      <div class="uk-panel">
+                          <h2>Pricing</h2>
+                          <p>Funnily enough, it is free to walk to your venue!</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
+  {% endif %}
 <!--
   <a class="travelWrapper" href="#modal4">
     <div class="travelContainer">

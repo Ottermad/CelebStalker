@@ -56,6 +56,15 @@ def travel():
     try:
         car = requests.get(base_url + 'travel/car/' + origin + '/' + destination + '/' + '30')
         car_data = car.json()
+        car_data['cost'] = round(car_data['cost'], 2)
+        car_data['distance'] = round(car_data['distance'], 3)
+    except:
+        car_data = False
+    try:
+        walk = requests.get(base_url + 'travel/walk/' + origin + '/' + destination)
+        walk_data = car.json()
+        walk_data['distance'] = round(car_data['distance'], 3)
+        print("WALK DATA", walk_data)
     except:
         car_data = False
     try:
@@ -66,7 +75,7 @@ def travel():
         print(plane_data)
     except:
         plane_data = False
-    return render_template('travel.html', car=car_data, airport=plane_data)
+    return render_template('travel.html', car=car_data, airport=plane_data, walk=walk_data)
 
 
 @app.route('/hotels', methods=('GET', 'POST'))
@@ -81,7 +90,9 @@ def hotels():
     r = requests.get(base_url + 'hotels/' + destination)
     print(r.url)
     hotels = [r.json()]
-    print(hotels)
+    #for hotel in hotels:
+    #    hotel['price'] = round(hotels['price'], 2)
+
     return render_template('hotels.html', hotels=hotels)
 
 

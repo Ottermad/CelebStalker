@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 import requests
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'adinpwbfweuiebNFIUpwbfuiew'
+app.config['SECRET_KEY'] = 'adinpwbfweuiewadawadadwabNFIUpwbfuiew'
 
 base_url = 'http://127.0.0.1:5000/'
 
@@ -19,13 +19,14 @@ def home():
 
 
 @app.route('/events', methods=('GET', 'POST'))
-def events(celeb, origin):
+def events():
     if request.method == "POST":
         session['query']['date'] = request.form['date']
         session['query']['destination'] = request.form['destination']
         return redirect(url_for('travel'))
     else:
         r = requests.get(base_url + 'events/search/' + session['query']['celeb'])
+        print(r.url)
         json_data = r.json()
         # id, date, maxprice currency, name
         data = []
@@ -42,23 +43,44 @@ def events(celeb, origin):
         return render_template('events.html', events=data)
 
 
-@app.route('/travel/<origin>/<destination>/<date>/<price>')
-def travel(origin, destination, date):
-    car = requests.get(base_url + 'travel/car/' + origin + '/' + destination + '/' + '30')
-    car_data = car.json()
-    date = date[:10]
-    print(date)
-    plane = requests.get(base_url + 'travel/plane/' + origin + '/' + destination + '/' + date  + '/1')
-    plane_data = plane.json()
-    print(plane_data)
+@app.route('/travel', methods=('GET', 'POST'))
+def travel():
+    if request.method == 'POST':
+        session['query']['mode'] = request.form['mode']
+        session['query']['travelCost'] = request.form['cost']
+        return redirect(url_for('hotels'))
+    origin = session['query']['origin']
+    destination = session['query']['destination']
+    date = session['query']['date']
+    try:
+        car = requests.get(base_url + 'travel/car/' + origin + '/' + destination + '/' + '30')
+        car_data = car.json()
+    except:
+        car_data = False
+    try:
+        date = date[:10]
+        print(date)
+        plane = requests.get(base_url + 'travel/plane/' + origin + '/' + destination + '/' + date  + '/1')
+        plane_data = plane.json()
+        print(plane_data)
+    except:
+        plane_data = False
     return render_template('travel.html', car=car_data, airport=plane_data)
 
 
-@app.route('/hotels/<destination>')
-def hotels(destination):
+@app.route('/hotels', methods=('GET', 'POST'))
+def hotels():
+    if request.method == "POST":
+        session['query']['hotel'] = request.form['hotel']
+        session['query']['hotelPrice'] = request.form['price']
+        return redirect(url_for('checkout'))
+    destination = session['query']['destination']   
+    print(destination)
     r = requests.get(base_url + 'hotels/' + destination)
+    print(r.url)
     hotels = [r.json()]
     print(hotels)
+    print(session['query'])
     return render_template('hotels.html', hotels=hotels)
 
 

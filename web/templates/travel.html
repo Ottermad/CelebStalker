@@ -3,36 +3,44 @@
   <br>
   <h1 class="uk-text-center title">TOURiST</h1>
   <br>
-  <a class="travelWrapper" href="#modal1">
-    <div class="travelContainer">
-      <div class="uk-block uk-block-muted travel">
-        <div class="uk-container travelElements">
-            <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
-                <div class="uk-width-medium-1-3 travelImg">
-                    <div class="uk-panel">
-                        <h1>Car</h1>
-                        <div class="tilt">
-                        <img src="{{ url_for('static', filename='assets/car.png') }}">
+  {% if car %}
+    <form method="POST" id="carForm">
+      <input type="hidden" name="mode" value="car">
+      <input type="hidden" name="cost" value="{{ car['cost'] }}">
+      <input type="hidden" name="distance" value="{{ car['distance'] }}">
+    </form>
+    <a class="travelWrapper" href="#" type="submit" id="carLink" onclick="$('#carForm').submit()">
+      <div class="travelContainer">
+        <div class="uk-block uk-block-muted travel">
+          <div class="uk-container travelElements">
+              <div class="uk-grid uk-grid-match" data-uk-grid-margin="">
+                  <div class="uk-width-medium-1-3 travelImg">
+                      <div class="uk-panel">
+                          <h1>Car</h1>
+                          <div class="tilt">
+                          <img src="{{ url_for('static', filename='assets/car.png') }}">
+                        </div>
                       </div>
-                    </div>
-                </div>
-                <div class="uk-width-medium-1-3">
-                    <div class="uk-panel">
-                        <h2>Distance</h2>
-                        <p>You will have to drive {{ car['distance'] }} miles to get to the venue. This will take some time.</p>
-                    </div>
-                </div>
-                <div class="uk-width-medium-1-3">
-                    <div class="uk-panel">
-                        <h2>Pricing</h2>
-                        <p>The cost of petrol or diesel to reach the venue is £{{ car['cost'] }}.</p>
-                    </div>
-                </div>
-            </div>
+                  </div>
+                  <div class="uk-width-medium-1-3">
+                      <div class="uk-panel">
+                          <h2>Distance</h2>
+                          <p>You will have to drive {{ car['distance'] }} miles to get to the venue. This will take some time.</p>
+                      </div>
+                  </div>
+                  <div class="uk-width-medium-1-3">
+                      <div class="uk-panel">
+                          <h2>Pricing</h2>
+                          <p>The cost of petrol or diesel to reach the venue is £{{ car['cost'] }}.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
+  {% endif %}
+  {% if airport %}
   <a class="travelWrapper" href="#modal2">
     <div class="travelContainer">
       <div class="uk-block uk-block-muted travel">
@@ -63,6 +71,7 @@
       </div>
     </div>
   </a>
+  {% endif %}
   <a class="travelWrapper" href="#modal3">
     <div class="travelContainer">
       <div class="uk-block uk-block-muted travel">

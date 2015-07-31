@@ -9,5 +9,6 @@ ticketmaster = Blueprint('ticketmaster', __name__, url_prefix='/events')
 def search(name):
     data = search_attraction(name)
     ids = [str(person['id']) for person in data['attractions']]
+    print(ids)
     events = get_events(ids)
     return jsonify(events)

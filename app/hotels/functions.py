@@ -1,7 +1,7 @@
 import csv
 
 def closest_hotel(location):
-    with open('/Users/charliethomas/CelebStalker2/CelebStalker/app/hotels/Hotels.csv', 'r', encoding = "ISO-8859-1") as f:
+    with open('/home/cthomas/CelebStalker/app/hotels/Hotels.csv', 'r', encoding = "ISO-8859-1") as f:
         reader = csv.reader(f)
         first = True
         header  = None

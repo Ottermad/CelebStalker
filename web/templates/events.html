@@ -11,7 +11,7 @@
         {% endif %}
         <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal{{event['id']}}" data-uk-modal="{center:true}">
           <h2 class="uk-text-center">{{ event['name'] }}</h2>
-          <img src="{{ url_for('static', filename='assets/kittendelete.jpg') }}" width="400">
+          <img src="{{ event['image'] }}" width="400">
         </a>
         <div id="modal{{event['id']}}" class="uk-modal">
           <div class="uk-modal-dialog smallEventsModal">

@@ -41,6 +41,7 @@ def events():
             e_data['price'] = event['price_ranges']['including_ticket_fees']['max']
             e_data['lat'] = str(event['venue']['location']['address']['lat'])
             e_data['long'] = str(event['venue']['location']['address']['long'])
+            e_data['image'] = event['images'][1]['url']
             data.append(e_data)
         return render_template('events.html', events=data)
 

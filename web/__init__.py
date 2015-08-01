@@ -67,7 +67,7 @@ def travel():
         walk_data['distance'] = round(car_data['distance'], 3)
         print("WALK DATA", walk_data)
     except:
-        car_data = False
+        walk_data = False
     try:
         date = date[:10]
         print(date)

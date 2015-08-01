@@ -1,20 +1,20 @@
 {% extends 'layout.html' %}
 {% block content %}
   <h1 class="uk-text-center title checkOutTitle">TOURiST</h1>
-  <div class="uk-panel uk-panel-box uk-width-medium-1-3 uk-align-medium-left leftComparison highlight translucent">
-      <h2 class="uk-title">Location: {{ details['destination '] }}</h2>
-      <h3>
-        Artist: {{ details['celeb'] }}<br>Travel: {{ details['mode'] }}<!--<br>Distance: {{ details['celeb'] }}--><br>Hotel: {{ details['hotel'] }}<br>Total Price: £{{ details['total'] }}</h3>
-      <a class="" href="{{ url_for('complete') }}">Complete</a> or <a class="" href="{{ url_for('compare') }}">Compare</a>
-  </div>
-  {% for other in others %}
-  <div class="uk-panel uk-panel-box uk-width-medium-1-3 uk-align-medium-left leftComparison highlight translucent">
-      <h2 class="uk-title">Location: {{ other['destination '] }}</h2>
-      <h3>
-        Artist: {{ other['celeb'] }}<br>Travel: {{ other['mode'] }}<!--<br>Distance: {{ details['celeb'] }}--><br>Hotel: {{ other['hotel'] }}<br>Total Price: £{{ other['total'] }}</h3>
-      <a class="" href="{{ url_for('complete') }}">Complete</a>
-  </div>
-  {% endfor %}
+    <div class="uk-panel uk-panel-box uk-width-medium-1-3 uk-align-medium-left leftComparison highlight translucent">
+        <h2 class="uk-title">Location: {{ details['destination '] }}</h2>
+        <h3>
+          Artist: {{ details['celeb'] }}<br>Travel: {{ details['mode'] }}<!--<br>Distance: {{ details['celeb'] }}--><br>Hotel: {{ details['hotel'] }}<br>Total Price: £{{ details['total'] }}</h3>
+        <a class="" href="{{ url_for('complete') }}">Complete</a> or <a class="" href="{{ url_for('compare') }}">Compare</a>
+    </div>
+    {% for other in others %}
+    <div class="uk-panel uk-panel-box uk-width-medium-1-3 uk-align-medium-left leftComparison highlight translucent">
+        <h2 class="uk-title">Location: {{ other['destination '] }}</h2>
+        <h3>
+          Artist: {{ other['celeb'] }}<br>Travel: {{ other['mode'] }}<!--<br>Distance: {{ details['celeb'] }}--><br>Hotel: {{ other['hotel'] }}<br>Total Price: £{{ other['total'] }}</h3>
+        <a class="" href="{{ url_for('complete') }}">Complete</a>
+    </div>
+    {% endfor %}
   <!--
   <div class="uk-panel uk-panel-box uk-width-medium-1-3 uk-align-medium-right rightComparison highlight translucent">
       <h2 class="uk-title">Location: </h2>
@@ -29,6 +29,13 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        /*overflow: hidden;*/
     }
+
+    /*#options {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 80%;
+    }*/
   </style>
 {% endblock %}

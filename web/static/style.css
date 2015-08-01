@@ -2,9 +2,19 @@ body {
   height: 100vh;
 }
 
+.submit {
+  border: none;
+  background: none;
+  outline: none;
+}
+
 .title {
   font-size: 5em;
   color: #ffffff;
+}
+
+.submit:active {
+  color: blue;
 }
 
 .eventsContainer {

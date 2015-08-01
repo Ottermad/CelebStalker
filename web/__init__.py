@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'adinpwbfweu1231241iewadawadadwabNFIUpwbfuiew'
 
-base_url = 'http://127.0.0.1:5000/'
+base_url = 'http://19ff93f7.ngrok.com/'
 
 
 @app.route('/', methods=('GET', 'POST'))
@@ -41,7 +41,9 @@ def events():
             e_data['price'] = event['price_ranges']['including_ticket_fees']['max']
             e_data['lat'] = str(event['venue']['location']['address']['lat'])
             e_data['long'] = str(event['venue']['location']['address']['long'])
-            e_data['image'] = event['images'][1]['url']
+            e_data['image'] = url_for('static', filename='assets/kittendelete.jpg')
+            for image in event['images']:
+                e_data['image'] = image['url']
             data.append(e_data)
         return render_template('events.html', events=data)
 
@@ -101,6 +103,8 @@ def hotels():
 
 @app.route('/checkout')
 def checkout():
+    if 'complete' not in session.keys():
+        session['complete'] = []
     session['query']['total'] = float(session['query']['price']) + float(session['query']['hotelPrice']) + float(session['query']['travelCost'])
     return render_template("checkout.html", details=session['query'], others=session['complete'])
 

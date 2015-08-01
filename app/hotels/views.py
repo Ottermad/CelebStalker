@@ -14,6 +14,7 @@ def hotels(location):
     	'longitude': closest['Longitude'],
     	'latitude': closest['Latitude'],
     	'name': closest['HotelName'],
-    	'price': closest['MaxPrice']
+    	'price': closest['MaxPrice'],
+    	'image': closest['HotelImage']
     }
     return jsonify(new_data)

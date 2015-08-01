@@ -7,7 +7,7 @@
       <div class="uk-flex uk-flex-middle uk-flex-space-around eventsContainer">
         <a class="uk-width-1-4 uk-panel uk-panel-box events" href="#modal1" data-uk-modal="{center:true}">
           <h2 class="uk-text-center">{{ hotel['name'] }}</h2>
-          <img src="{{ url_for('static', filename='assets/kittendelete.jpg') }}" width="400">
+          <img src="{{ hotel['image'] }}" width="400">
         </a>
       </div>
       <div id="modal1" class="uk-modal">

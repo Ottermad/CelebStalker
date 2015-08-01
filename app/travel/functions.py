@@ -100,7 +100,7 @@ def cheapest_flight(start, end, passengers, date):
     payload["key"] = GOOGLE_API_KEY
     headers = {'Content-Type': 'application/json'}
     r = requests.post("https://www.googleapis.com/qpxExpress/v1/trips/search", data=data, params=payload, headers=headers)
-    print(r.status_code)
+    print("URL", r.url)
     json_data = r.json()
     print(json_data)
     price = json_data['trips']['tripOption'][0]['saleTotal']
